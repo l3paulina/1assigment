@@ -3,6 +3,7 @@ import requests
 from zipfile import ZipFile
 import pandas as pd
 
+## download the AIS data and extract it
 def download_and_extract_zip(url, extract_to="ais_data"):
     zip_path = "ais_data.zip"
     
@@ -19,6 +20,7 @@ def download_and_extract_zip(url, extract_to="ais_data"):
     os.remove(zip_path)
     return extract_to
 
+# format the data into a csv
 def load_and_save_data_to_csv(folder, output_file="ais_data.csv"):
 
     file_path = os.path.join(folder, "aisdk-2024-03-19.csv") 
