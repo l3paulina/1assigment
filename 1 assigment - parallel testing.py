@@ -51,7 +51,6 @@ def detect_speed_anomalies(chunk):
     for _, vessel_data in tqdm(chunk.groupby('MMSI'), desc="Processing Speed Anomalies", total=len(chunk['MMSI'].unique())):
         ## detect unrealistic speed anomalies (SOG above 50 knots threshold)
         vessel_anomalies = vessel_data.loc[vessel_data['SOG'].fillna(0) > 50, ['MMSI', '# Timestamp']]
-
         vessel_anomalies['Anomaly_Type'] = 'Unrealistic Speed'
         
         if not vessel_anomalies.empty:
