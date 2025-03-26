@@ -83,7 +83,7 @@ def load_and_process_data_parallel(file_path, chunk_size=100000, num_workers=7):
 ## testing function to run spoofing detection using different numbers of workers
 def run_spoofing_detection_varying_workers(file_path, worker_counts=[1, 2, 3, 4, 5, 6, 7]):
     results = []
-    ## I used time library for execution time counts. Runs the funtion to load and process the AIS dataset in parallel with anomaly detection with different cpu counts (might've been a bit to much testing but I wanted to try it all out) 
+    ## I used time library for execution time counts. Run the funtion to load and process the AIS dataset in parallel with anomaly detection with different cpu counts (might've been a bit to much testing but I wanted to try it all out) 
     for num_workers in worker_counts:
         print(f"\nRunning with {num_workers} workers...")
         start_time = time.time()
