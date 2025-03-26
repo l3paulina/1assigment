@@ -1,4 +1,4 @@
-The repository has 3 parts:
+The repository has 4 parts:
 
 Data extraction - how the data was downloaded and turned into a csv file.
 Anomaly detection - main code for the parallel and sequential spoofing detection.
