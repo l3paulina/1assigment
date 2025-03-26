@@ -71,7 +71,7 @@ def process_chunk(chunk):
     ## combine results from both tasks
     return np.vstack((location_anomalies, speed_anomalies))
 
-## funtion to load and process the AIS dataset in parallel using multiple workers (7 workers come from having an 8 core pc - 1 for the computer to function)
+## funtion to load and process the AIS dataset in parallel using multiple workers (7 workers come from having an 8 core pc - 1 for the computer to function (also ended being the fastest time with 7 workers)
 def load_and_process_data_parallel(file_path, chunk_size=100000, num_workers=7):
     ## chunk the data
     chunks = list(pd.read_csv(file_path, chunksize=chunk_size))
