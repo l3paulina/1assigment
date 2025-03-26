@@ -61,7 +61,7 @@ def detect_speed_anomalies(chunk):
 ## funtion to process chunks in parallel with ProcessPoolExecutor
 def process_chunk(chunk):
     with ProcessPoolExecutor() as executor:
-        ## funtion to run location anomaly and speed anomaly detection in task parallel
+        ## run location anomaly and speed anomaly detection in task parallel
         future_location = executor.submit(detect_location_anomalies, chunk)
         future_speed = executor.submit(detect_speed_anomalies, chunk)
         ## get results from both tasks
@@ -74,7 +74,7 @@ def process_chunk(chunk):
 def load_and_process_data_parallel(file_path, chunk_size=100000, num_workers=7):
     ## chunk the data
     chunks = list(pd.read_csv(file_path, chunksize=chunk_size))
-    ## process each chunk is parallel
+    ## process each chunk in parallel
     with ProcessPoolExecutor(max_workers=num_workers) as executor:
         results = list(tqdm(executor.map(process_chunk, chunks), total=len(chunks), desc="Parallel Processing"))
 
