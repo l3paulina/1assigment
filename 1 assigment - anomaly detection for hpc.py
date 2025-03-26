@@ -72,7 +72,7 @@ def process_chunk(chunk):
     ## combine results from both tasks
     return np.vstack((location_anomalies, speed_anomalies))
 
-## funtion to load and process the AIS dataset in parallel using multiple workers (for hpc - cpu count -1)
+## funtion to load and process the AIS dataset in parallel using multiple workers (for hpc the worker count - cpu count -1) (I know I could've done this in the main version but I just wanted to have different files)
 def load_and_process_data_parallel(file_path, chunk_size=100000, num_workers=mp.cpu_count()-1):
     ## chunk the data
     chunks = list(pd.read_csv(file_path, chunksize=chunk_size))
