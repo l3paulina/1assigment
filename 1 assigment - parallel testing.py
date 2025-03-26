@@ -33,7 +33,7 @@ def detect_location_anomalies(chunk):
             vessel_data['Latitude'], vessel_data['Longitude'],
             vessel_data['prev_lat'], vessel_data['prev_lon']
         )
-        ## detect location anomalies based on large jumps (100km threshold) in position
+        ## filter location anomalies based on large jumps (100km threshold) in position
         anomalies_df = vessel_data.loc[vessel_data['distance'] > 100, ['MMSI', '# Timestamp']]
         anomalies_df['Anomaly_Type'] = 'Large Location Jump'
 
@@ -49,7 +49,7 @@ def detect_speed_anomalies(chunk):
     anomalies = []
     ## group data by vessel identifier (MMSI) and process each seperately
     for _, vessel_data in tqdm(chunk.groupby('MMSI'), desc="Processing Speed Anomalies", total=len(chunk['MMSI'].unique())):
-        ## detect unrealistic speed anomalies (SOG above 50 knots threshold)
+        ## filter unrealistic speed anomalies (SOG above 50 knots threshold)
         vessel_anomalies = vessel_data.loc[vessel_data['SOG'].fillna(0) > 50, ['MMSI', '# Timestamp']]
         vessel_anomalies['Anomaly_Type'] = 'Unrealistic Speed'
         
