@@ -2,4 +2,4 @@ The repository has 3 parts:
 
 Data extraction - how the data was downloaded and turned into a csv file.
 Anomaly detection - main code for the parallel and sequential spoofing detection.
-Parallel testing - testing parallel spoofing detection process with different counts of cpu.
+Parallel testing - testing the parallel spoofing detection process with different counts of cpu.
