@@ -8,6 +8,20 @@ Analyze vessel tracking data from AIS records using **parallel computing** to de
 - GPS spoofing detection via data analysis  
 - Performance evaluation using Python’s parallel processing libraries
 
+
+---
+
+## AIS Data Overview
+
+The data used in this project comes from the **Automatic Identification System (AIS)**, which collects real-time information on vessel movements. Each data point typically includes:
+
+- Vessel ID and type  
+- GPS coordinates (latitude, longitude)  
+- Speed and heading  
+- Timestamps
+
+AIS data is widely used in maritime analytics to monitor traffic, detect suspicious movement, and enhance safety at sea. In this project, AIS records were processed to uncover inconsistencies in positioning data that may indicate **GPS spoofing**.
+
 ---
 
 ## Task Breakdown
@@ -57,7 +71,9 @@ Analyze vessel tracking data from AIS records using **parallel computing** to de
   ```math
   \text{Speedup} = \frac{\text{Time (sequential)}}{\text{Time (parallel)}}
 
-The repository has 3 parts:
+---
+
+## Repository Structure
 
 1) Data extraction - how the data was downloaded and turned into a csv file.
 2) Anomaly detection - main code for the parallel and sequential spoofing detection.
